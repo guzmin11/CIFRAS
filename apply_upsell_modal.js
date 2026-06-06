@@ -108,6 +108,8 @@ function applyUpsellModal() {
       // Only intercept QUERO O BÁSICO buttons
       if (text.includes("QUERO O BÁSICO") && link.id !== 'upsell-refuse') {
         e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
         
         // Sometimes original links have utm parameters appended dynamically, so we capture the exact href at click time
         originalBasicLink = link.href;
@@ -119,7 +121,7 @@ function applyUpsellModal() {
           startUpsellTimer();
         }
       }
-    });
+    }, true);
   })();
 </script>
 `;
