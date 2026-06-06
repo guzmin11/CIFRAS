@@ -835,6 +835,14 @@ details:not([open]) > div { display: none; }
         }
       }
     }, true);
+
+    // Fechar modal ao clicar fora (no fundo escuro)
+    window.addEventListener('click', function(e) {
+      var modal = document.getElementById('upsell-modal');
+      if (e.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
   })();
 </script>
 
